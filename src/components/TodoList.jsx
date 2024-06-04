@@ -7,16 +7,12 @@ function TodoList() {
         const newTodo = todoList.filter(todo => todo.id!==id)
         setTodoList(newTodo);
     }
-    function isDone(id){
-    //     const newTodo = todoList.filter(todo => todo.id!==id)
-         const findTodo = todoList.reduce(app,todo => {
-           console.log("", todo.id);
-        },[])
-        console.log(findTodo)
-    //     newTodo[id].isDone = !newTodo[id].isDone;
-    //    setTodoList(newTodo.concat(findTodo));
-       //({...todoList,...findTodo.isDone=!findTodo.isDone});
-    }
+    function isDone (id){
+      const todoUpdate = todoList.filter(todo => todo.id==id)
+      const newTodo = [...todoList]
+      todoUpdate[0].isDone=!todoUpdate[0].isDone
+      setTodoList(newTodo);
+    };
   return (
     <div>
         {todoList.map(todo => {
